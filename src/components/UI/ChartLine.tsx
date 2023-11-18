@@ -12,7 +12,18 @@ import {
 import { FC } from 'react'
 import { Line } from 'react-chartjs-2'
 
-export const ChartLine: FC = () => {
+interface ChartLine {
+  // Убрать опциональность
+  labels?: string[]
+  color?: string
+  // Убрать опциональность
+  data?: number[]
+}
+
+export const ChartLine: FC<ChartLine> = ({
+  labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  color = '#7677E2'
+}) => {
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -31,33 +42,18 @@ export const ChartLine: FC = () => {
         labels: {
           color: '#fff'
         }
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Line Chart',
-        color: '#fff'
       }
     }
   }
-
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July'
-  ]
 
   const data = {
     labels,
     datasets: [
       {
         label: 'Dataset 1',
-        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-        borderColor: '#7677E2',
-        backgroundColor: '#7677E2',
+        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })), // Передавать data из пропсов
+        borderColor: color,
+        backgroundColor: color,
         lineTension: 0.4
       }
     ]
