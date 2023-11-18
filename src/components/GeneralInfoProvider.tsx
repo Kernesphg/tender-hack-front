@@ -1,9 +1,12 @@
+import { ChartLine } from './UI/ChartLine'
+
 export const GeneralInfoProvider = () => {
   return (
-    <div className="flex flex-col gap-3">
+    <div className='flex flex-col gap-3'>
       <h3>ИНН: 138172488472389</h3>
       <hr />
       график общая доходность
+      <ChartLine />
       <hr />
       График активности
       <hr />
@@ -20,5 +23,5 @@ export const GeneralInfoProvider = () => {
       <hr />
       Соблюдение сроков в процентах
     </div>
-  );
-};
+  )
+}
