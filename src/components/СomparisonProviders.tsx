@@ -5,6 +5,7 @@ import { Button } from './UI/buttons/Button';
 import { SearchInput } from './UI/inputs/SearchInput';
 import { useState } from 'react';
 import { SideBar } from './SideBar';
+import { GeneralInfoProvider } from './GeneralInfoProvider';
 
 export const СomparisonProviders = () => {
   const [isVisibleSideBar, setIsVisibleSideBar] = useState(false);
@@ -31,15 +32,7 @@ export const СomparisonProviders = () => {
       </div>
       <div className="grid grid-cols-2 gap-2 mt-6">
         <WrapperBlock>
-          <p>dsadas</p>
-          <p>dsadas</p>
-          <p>dsadas</p>
-          <p>dsadas</p>
-          <p>dsadas</p>
-        </WrapperBlock>
-        <WrapperBlock>
-          <p>dsadas</p>
-          <p>dsadas</p>
+          <GeneralInfoProvider />
         </WrapperBlock>
       </div>
     </div>
