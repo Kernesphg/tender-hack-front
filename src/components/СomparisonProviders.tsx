@@ -12,12 +12,10 @@ export const СomparisonProviders = () => {
 
   return (
     <div className="pt-10 px-6 flex-grow">
-      {isVisibleSideBar && (
-        <SideBar
-          isVisible={isVisibleSideBar}
-          setIsVisibleSideBar={() => setIsVisibleSideBar(false)}
-        />
-      )}
+      <SideBar
+        isVisible={isVisibleSideBar}
+        setIsVisibleSideBar={() => setIsVisibleSideBar(false)}
+      />
       <div className="flex items-center gap-3">
         <SideBarButton onClick={() => setIsVisibleSideBar(true)} />
         <ContentTitle>Сравнение поставщиков:</ContentTitle>

@@ -16,11 +16,6 @@ interface SideBarProps {
 }
 
 export const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisibleSideBar }) => {
-  const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(e);
-  };
-
   console.log(isVisible);
 
   return (
@@ -33,15 +28,14 @@ export const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisibleSideBar }) =>
           className="absolute z-20 opacity-70 bg-black top-0 left-0 right-0 bottom-0"></div>
       )}
       <form
-        onSubmit={(e) => handleSubmitForm(e)}
-        className={`${
-          !isVisible && '-left-96'
-        } flex flex-col absolute left-0 transition-all bg-main z-30 top-0 gap-3 h-screen w-96 p-4`}>
+        className={`${!isVisible && '-left-96'} flex flex-col absolute ${
+          isVisible && 'left-0'
+        }  transition-all bg-main z-30 top-0 gap-3 h-screen w-96 p-4`}>
         <div className="flex-grow">
           <div className="flex pb-3 justify-between">
             <ContentTitle>Фильтрация:</ContentTitle>
             <div className="w-20">
-              <Button onClick={() => setIsVisibleSideBar(false)} label={'X'}></Button>
+              <Button type="button" onClick={() => setIsVisibleSideBar(false)} label={'X'}></Button>
             </div>
           </div>
           <InputGroup label="Диапозон даты:">
