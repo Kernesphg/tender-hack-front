@@ -9,7 +9,7 @@ import { GeneralInfoProvider } from './GeneralInfoProvider';
 
 export const СomparisonProviders = () => {
   const [isVisibleSideBar, setIsVisibleSideBar] = useState(false);
-
+  const providers: object[] = [{}, {}, {}];
   return (
     <div className="pt-10 px-6 flex-grow">
       <SideBar
@@ -28,10 +28,24 @@ export const СomparisonProviders = () => {
           <Button label="+" />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2 mt-6">
-        <WrapperBlock>
-          <GeneralInfoProvider />
-        </WrapperBlock>
+      <div
+        className={`grid ${providers.length === 0 && 'grid-cols-1'} ${
+          providers.length > 0 && 'grid-cols-2'
+        } gap-2 mt-6`}>
+        {providers.length > 0 ? (
+          providers.map(() => (
+            <WrapperBlock>
+              <GeneralInfoProvider />
+            </WrapperBlock>
+          ))
+        ) : (
+          <div className="flex flex-col gap-9 m-auto mt-44 text-white w-[900px]">
+            <p className="text-9xl font-black text-gray-300 text-center">\(^Д^)/</p>
+            <h5 className="text-4xl text-center">
+              Введите данные поставщика для сравнения статистики
+            </h5>
+          </div>
+        )}
       </div>
     </div>
   );

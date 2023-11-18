@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { InputGroup } from './InputGroup';
 import { Checkbox } from './UI/Checkbox';
 import { ContentTitle } from './UI/ContentTitle';
@@ -16,7 +16,13 @@ interface SideBarProps {
 }
 
 export const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisibleSideBar }) => {
-  console.log(isVisible);
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isVisible]);
 
   return (
     <>
@@ -25,10 +31,10 @@ export const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisibleSideBar }) =>
           onClick={() => {
             setIsVisibleSideBar(false);
           }}
-          className="absolute z-20 opacity-70 bg-black top-0 left-0 right-0 bottom-0"></div>
+          className="fixed z-20 opacity-70 bg-black top-0 left-0 right-0 bottom-0"></div>
       )}
       <form
-        className={`${!isVisible && '-left-96'} flex flex-col absolute ${
+        className={`${!isVisible && '-left-96'} flex flex-col fixed ${
           isVisible && 'left-0'
         }  transition-all bg-main z-30 top-0 gap-3 h-screen w-96 p-4`}>
         <div className="flex-grow">

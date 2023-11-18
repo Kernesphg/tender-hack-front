@@ -17,6 +17,7 @@ export const SearchInput: FC<SearchInputProps> = ({ placeholder, type = 'text', 
         </div>
       )}
       <input
+        maxLength={12}
         className="outline-none w-full rounded-main bg-input py-3 pl-11 pr-4 focus:pl-4 transition-all"
         onFocus={() => setIsVisibleLens(false)}
         onBlur={() => setIsVisibleLens(true)}
