@@ -28,7 +28,7 @@ export const GeneralInfoProvider = () => {
         <li>01.23.40</li>
       </ul>
       <hr />
-      <Table count={0} time={new Date()} />
+      <Table count={2} time={new Date()} />
       <hr />
       Соблюдение сроков в процентах
     </div>
