@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, memo } from 'react';
 
 export const WrapperBlock: FC<PropsWithChildren> = ({ children }) => {
   return (

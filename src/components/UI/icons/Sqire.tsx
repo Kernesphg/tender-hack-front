@@ -5,7 +5,7 @@ export const Sqire = () => {
       viewBox="0 0 162 162"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
-      <g opacity="0.5" clip-path="url(#clip0_0_2878)">
+      <g opacity="0.5" clipPath="url(#clip0_0_2878)">
         <path
           d="M2.9778 5.9556C4.62239 5.9556 5.9556 4.62239 5.9556 2.9778C5.9556 1.33321 4.62239 0 2.9778 0C1.33321 0 0 1.33321 0 2.9778C0 4.62239 1.33321 5.9556 2.9778 5.9556Z"
           fill="#FF2261"

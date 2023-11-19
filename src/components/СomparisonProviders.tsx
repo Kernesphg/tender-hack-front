@@ -3,13 +3,36 @@ import { WrapperBlock } from './UI/WrapperBlock';
 import { SideBarButton } from './UI/buttons/SideBarButton';
 import { Button } from './UI/buttons/Button';
 import { SearchInput } from './UI/inputs/SearchInput';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { SideBar } from './SideBar';
 import { GeneralInfoProvider } from './GeneralInfoProvider';
+import axios from 'axios';
 
 export const СomparisonProviders = () => {
   const [isVisibleSideBar, setIsVisibleSideBar] = useState(false);
-  const providers: object[] = [{}, {}, {}];
+  const [providers, setProviders] = useState<string[]>([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [error, setError] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const addProvider = async () => {
+    const url = `http://92.51.38.68:8000/inn_to_payload/${searchValue}/`;
+    console.log(url);
+    axios
+      .get(url)
+      .then((res) => {
+        if (!providers.includes(searchValue)) {
+          setProviders([searchValue, ...providers]);
+        } else {
+          setError('Такой поставщик уже добавлен для сравнения ');
+        }
+      })
+      .catch((err) => {
+        setError('Нет поставщика с таким ИНН');
+        setTimeout(() => setError(''), 1500);
+      });
+  };
+
   return (
     <div className="pt-10 px-6 flex-grow">
       <SideBar
@@ -22,10 +45,16 @@ export const СomparisonProviders = () => {
       </div>
       <div className="flex gap-2 mt-6">
         <div className="w-[700px]">
-          <SearchInput placeholder="ИНН" />
+          <SearchInput
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            placeholder="ИНН"
+            ref={inputRef}
+          />
+          {error && <p className="text-red-500">{error}</p>}
         </div>
         <div className="w-[80px]">
-          <Button label="+" />
+          <Button label="+" onClick={() => addProvider()} />
         </div>
       </div>
       <div
@@ -33,9 +62,9 @@ export const СomparisonProviders = () => {
           providers.length > 0 && 'grid-cols-2'
         } gap-2 mt-6`}>
         {providers.length > 0 ? (
-          providers.map(() => (
-            <WrapperBlock>
-              <GeneralInfoProvider />
+          providers.map((el, index) => (
+            <WrapperBlock key={index}>
+              <GeneralInfoProvider inn={el} />
             </WrapperBlock>
           ))
         ) : (

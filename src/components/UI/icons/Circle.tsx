@@ -5,7 +5,7 @@ export const Circle = () => {
       viewBox="0 0 128 260"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
-      <circle opacity="0.5" cx="130" cy="130" r="106" stroke="#FF2261" stroke-width="48" />
+      <circle opacity="0.5" cx="130" cy="130" r="106" stroke="#FF2261" strokeWidth="48" />
     </svg>
   );
 };

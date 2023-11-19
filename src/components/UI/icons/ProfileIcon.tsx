@@ -6,11 +6,11 @@ export const ProfileIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       fill="#ffffff"
       stroke="#ffffff">
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+      <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">
         <title>profile_round [#ffffff]</title> <desc>Created with Sketch.</desc> <defs> </defs>{' '}
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g
             id="Dribbble-Light-Preview"
             transform="translate(-380.000000, -2119.000000)"
