@@ -10,7 +10,7 @@ import axios from 'axios';
 
 export const СomparisonProviders = () => {
   const [isVisibleSideBar, setIsVisibleSideBar] = useState(false);
-  const [providers, setProviders] = useState<string[]>([]);
+  const [providers, setProviders] = useState<string[]>(['1']);
   const [searchValue, setSearchValue] = useState('');
   const [error, setError] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
