@@ -20,7 +20,7 @@ export const СomparisonProviders = () => {
     console.log(url);
     axios
       .get(url)
-      .then((res) => {
+      .then(() => {
         if (!providers.includes(searchValue)) {
           setProviders([searchValue, ...providers]);
           setSearchValue('');
@@ -28,7 +28,7 @@ export const СomparisonProviders = () => {
           setError('Такой поставщик уже добавлен для сравнения ');
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setError('Нет поставщика с таким ИНН');
         setTimeout(() => setError(''), 1500);
       });
