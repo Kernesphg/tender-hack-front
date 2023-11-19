@@ -32,8 +32,7 @@ export const GeneralInfoProvider: FC<GeneralInfoProviderProps> = ({ inn }) => {
             {inn}
           </h5>
           <div className="">
-            <Rating readonly className="flex" initialValue={3} />
-            <Rating readonly className="flex" initialValue={3} iconsCount={5} />
+            <Rating readonly className="flex" initialValue={5} />
           </div>
         </div>
         <div className="border-t py-6">

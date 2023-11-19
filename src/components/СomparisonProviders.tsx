@@ -23,6 +23,7 @@ export const СomparisonProviders = () => {
       .then((res) => {
         if (!providers.includes(searchValue)) {
           setProviders([searchValue, ...providers]);
+          setSearchValue('');
         } else {
           setError('Такой поставщик уже добавлен для сравнения ');
         }
